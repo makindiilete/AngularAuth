@@ -1,1 +1,55 @@
-<p>login works!</p>
+<div class="row pt-5">
+  <div class="col-md-6 mx-auto">
+    <div class="card rounded-0">
+      <div class="card-header">
+        <h3 class="mb-0">Login</h3>
+        <!-- /.mb-0 -->
+      </div>
+      <div class="card-body">
+        <form novalidate class="form" *ngIf="!isLoading">
+          <p class="alert alert-danger" *ngIf="errorMsg !== ''">
+            {{ errorMsg }}
+          </p>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="text"
+              class="form-control rounded-0"
+              name="email"
+              [(ngModel)]="loginUserData.email"
+              required
+              id="email"
+            />
+          </div>
+          <!-- /.form-group -->
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              class="form-control rounded-0"
+              required
+              name="password"
+              [(ngModel)]="loginUserData.password"
+              id="password"
+            />
+          </div>
+          <button
+            (click)="submitForm()"
+            type="submit"
+            class="btn btn-danger float-right"
+          >
+            Login
+          </button>
+          <!-- /.btn btn-primary float-right -->
+        </form>
+        <h3 *ngIf="isLoading" class="text-center">Loading...</h3>
+        <!-- /.form -->
+      </div>
+      <!-- /.card-body -->
+      <!-- /.card-header -->
+    </div>
+    <!-- /.card rounded-0 -->
+  </div>
+  <!-- /.col-md-3 mx-auto -->
+</div>
+<!-- /.row -->

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from './services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +9,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'client';
+  constructor(private authService: AuthService) {}
 
   handleClick($event: MouseEvent) {
     console.log($event);
     alert('Clicked');
+  }
+
+  logout() {
+    localStorage.removeItem('token');
   }
 }

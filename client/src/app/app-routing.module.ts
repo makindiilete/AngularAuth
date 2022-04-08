@@ -4,6 +4,7 @@ import { EventsComponent } from './events/events.component';
 import { SpecialEventsComponent } from './special-events/special-events.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   // root routes will redirect to /events route
@@ -19,6 +20,8 @@ const routes: Routes = [
   {
     path: 'special',
     component: SpecialEventsComponent,
+    // only authenticated users can access ds route
+    canActivate: [AuthGuard],
   },
   {
     path: 'login',
